@@ -3,6 +3,7 @@ import 'package:newfluttermovieapp/datasource/datasources/movies_datasource.dart
 import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
 import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
 import 'package:newfluttermovieapp/domain/repositories/movie_repository.dart';
+import 'package:newfluttermovieapp/domain/usecase/get_movie_trailer_usecase.dart';
 import 'package:newfluttermovieapp/domain/usecase/get_popular_movie_usecase.dart';
 
 class MovieRepositoryImpl extends MovieRepository {
@@ -11,9 +12,8 @@ class MovieRepositoryImpl extends MovieRepository {
   MovieRepositoryImpl(this.dataSource);
 
   @override
-  Future<List<MovieTrailerDomain>> fetchMovieTrailer() {
-    // TODO: implement fetchMovieTrailer
-    throw UnimplementedError();
+  Future<List<MovieTrailerDomain>> fetchMovieTrailer(GetMovieTrailerUseCaseParams params) {
+   return dataSource.getMovieTrailer(params);
   }
 
   @override

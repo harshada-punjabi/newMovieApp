@@ -2,8 +2,6 @@
 
 import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
 import 'package:newfluttermovieapp/domain/repositories/movie_repository.dart';
-import 'package:newfluttermovieapp/presentation/utils/strings.dart';
-
 import 'base_usecase.dart';
 
 class GetPopularMovieUseCase extends BaseUseCase<List<MovieTrailerDomain>, GetMovieTrailerUseCaseParams>{
@@ -12,7 +10,7 @@ class GetPopularMovieUseCase extends BaseUseCase<List<MovieTrailerDomain>, GetMo
   @override
   Future<List<MovieTrailerDomain>> buildUseCaseFuture(
       {required GetMovieTrailerUseCaseParams params}) async {
-    return _repository.fetchMovieTrailer();
+    return _repository.fetchMovieTrailer(params);
   }
 
 }
