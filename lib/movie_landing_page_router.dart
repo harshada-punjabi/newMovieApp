@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:newfluttermovieapp/presentation/movie_list/widgets/app_launcher.dart';
 
 import 'package:page_transition/page_transition.dart';
 
@@ -16,11 +17,11 @@ class MovieLandingRouter {
           duration: Duration(milliseconds: 450),
         );
       break;
-      case MovieLandingRoutePaths.Contact:
+      case MovieLandingRoutePaths.Movie:
         return PageTransition(
           // child: ContactView(),
-          child: Container(),
-          settings: RouteSettings(name: MovieLandingRoutePaths.Contact),
+          child: AppLauncher(url: '', trailerName: '',),
+          settings: RouteSettings(name: MovieLandingRoutePaths.Movie),
           type: PageTransitionType.fade,
           duration: Duration(milliseconds: 450),
         );

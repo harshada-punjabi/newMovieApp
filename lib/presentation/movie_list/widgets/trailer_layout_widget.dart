@@ -26,16 +26,16 @@ class TrailerLayout extends StatelessWidget {
             return InkWell(
               onTap: () {
                 String url = '${StaticStrings.youtubeBaseUrl}${items.trailerKey}';
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       return AppLauncher(
-                //           url: url, trailerName: items.trailerName);
-                //     },
-                //   ),
-                // );
-                Navigator.of(context).pushNamed(MovieLandingRoutePaths.Movie);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return AppLauncher(
+                          url: url, trailerName: items.trailerName);
+                    },
+                  ),
+                );
+                // Navigator.of(context).pushNamed(MovieLandingRoutePaths.Movie);
               },
               child: Container(
                 width: 170.0,
