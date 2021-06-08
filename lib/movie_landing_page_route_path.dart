@@ -1,5 +1,4 @@
 class MovieLandingRoutePaths {
   static const String Landing = '/';
-  static const String Splash = '/splash';
-  static const String Contact = '/contact';
+  static const String Movie = '/movieDetail';
 }
