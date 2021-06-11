@@ -5,6 +5,6 @@ import 'package:newfluttermovieapp/domain/usecase/get_movie_trailer_usecase.dart
 import 'package:newfluttermovieapp/domain/usecase/get_popular_movie_usecase.dart';
 
 abstract class MovieListDataSource{
-  Future<MovieDomain> getPopularMovie(GetPopularMovieUseCaseParams params);
-  Future<List<MovieTrailerDomain>> getMovieTrailer(GetMovieTrailerUseCaseParams params);
+  Future<List<MovieDomain>> getPopularMovie(GetPopularMovieUseCaseParams params);
+  // Future<List<MovieTrailerDomain>> getMovieTrailer( params);
 }

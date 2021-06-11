@@ -14,8 +14,8 @@ void main() {
     runApp(
       MultiProvider(
         providers: providers,
-        child: MainAppWidget(),
-      ),
+        child: MainAppWidget(),),
+
     );
   });
 }
@@ -23,11 +23,6 @@ void main() {
 class MainAppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BaseWidget<MovieLandingPageApplicationViewModel>(
-        viewModel: MovieLandingPageApplicationViewModel(),
-        onModelReady: (m) {},
-        builder: (context, model, _) {
-          return MovieLandingPageApplication();
-        });
+    return MovieLandingPageApplication();
   }
 }

@@ -6,7 +6,7 @@ class StaticStrings {
 
   static const String imageAppendUrl = "https://image.tmdb.org/t/p/w185";
 
-  static const String placeHolderImgPath = 'images/place_holder.png';
+  static const String placeHolderImgPath = 'assets/place_holder.png';
 
   static const String popularRequestTag = 'popular?';
 

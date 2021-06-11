@@ -5,7 +5,7 @@ import 'app_state_container.dart';
 enum OptionsMenu { settings }
 
 class PopUpMenuOptions extends StatelessWidget {
-  PopUpMenuOptions({required this.onSelected});
+  PopUpMenuOptions({@required this.onSelected});
 
   final Function onSelected;
 
@@ -15,7 +15,7 @@ class PopUpMenuOptions extends StatelessWidget {
       child: Icon(
         Icons.more_vert,
         size: 24.0,
-        color: AppStateContainer.of(context).theme.accentColor,
+        //color: AppStateContainer.of(context).theme.accentColor,
       ),
       onSelected: (OptionsMenu result) {
         onSelected(result);

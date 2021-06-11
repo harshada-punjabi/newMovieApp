@@ -14,11 +14,11 @@ class MovieEntity extends BaseEntity {
   final String releaseDate;
 
   MovieEntity({
-    required this.movieId,
-    required this.posterImg,
-    required this.title,
-    required this.overview,
-    required this.releaseDate,
+     this.movieId,
+     this.posterImg,
+     this.title,
+     this.overview,
+     this.releaseDate,
     this.vote
 
   });

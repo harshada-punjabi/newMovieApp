@@ -6,17 +6,17 @@ import 'app_state_container.dart';
 
 
 class MovieDetailDescription extends StatelessWidget {
-  final MovieDomain? movieList;
+  final MovieDomain movieList;
   MovieDetailDescription({ this.movieList}) : assert(movieList != null);
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          '${movieList!.title}',
+          '${movieList.title}',
           textAlign: TextAlign.start,
           style: TextStyle(
-            color: AppStateContainer.of(context).theme.accentColor,
+            // color: AppStateContainer.of(context).theme.accentColor,
             fontWeight: FontWeight.bold,
             fontSize: 25.0,
           ),
@@ -41,9 +41,9 @@ class MovieDetailDescription extends StatelessWidget {
                     width: 2.0,
                   ),
                   Text(
-                    '${movieList!.vote}',
+                    '${movieList.vote}',
                     style: TextStyle(
-                        color: AppStateContainer.of(context).theme.accentColor,
+                        // color: AppStateContainer.of(context).theme.accentColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 19.0),
                   )
@@ -54,10 +54,10 @@ class MovieDetailDescription extends StatelessWidget {
               width: 10.0,
             ),
             Text(
-              'Release Date: ${movieList!.releaseDate}',
+              'Release Date: ${movieList.releaseDate}',
               textAlign: TextAlign.end,
               style: TextStyle(
-                  color: AppStateContainer.of(context).theme.accentColor,
+                 // color: AppStateContainer.of(context).theme.accentColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 17.0),
             ),
@@ -67,9 +67,9 @@ class MovieDetailDescription extends StatelessWidget {
           height: 15.0,
         ),
         Text(
-          '${movieList!.overview}',
+          '${movieList.overview}',
           style: TextStyle(
-              color: AppStateContainer.of(context).theme.accentColor,
+             // color: AppStateContainer.of(context).theme.accentColor,
               fontWeight: FontWeight.bold,
               fontSize: 17.0),
         ),
@@ -79,7 +79,7 @@ class MovieDetailDescription extends StatelessWidget {
         Text(
           'Trailer',
           style: TextStyle(
-            color: AppStateContainer.of(context).theme.accentColor,
+            //color: AppStateContainer.of(context).theme.accentColor,
             fontWeight: FontWeight.bold,
             fontSize: 22.0,
           ),

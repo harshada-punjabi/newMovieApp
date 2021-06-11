@@ -10,7 +10,7 @@ class EmptyTrailerLayout extends StatelessWidget {
         child: Text(
           "No trailer available",
           style: TextStyle(
-            color: AppStateContainer.of(context).theme.accentColor,
+            // color: AppStateContainer.of(context).theme.accentColor,
             fontWeight: FontWeight.bold,
             fontSize: 19.0,
           ),

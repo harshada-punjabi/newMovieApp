@@ -2,21 +2,21 @@ import 'package:flutter_base_architecture/dto/base_dto.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 
 class MovieDomain extends BaseDto {
- late int movieId = -1;
- late String posterImg;
- late String overview;
- late String releaseDate;
-  late String title;
- late var vote;
+  int movieId = -1;
+  String posterImg;
+  String overview;
+  String releaseDate;
+   String title;
+  var vote;
 
 
 
   MovieDomain({
     this.movieId: -1,
-    required this.posterImg,
-    required this.overview,
-    required this.releaseDate,
-    required this.title,
+     this.posterImg,
+     this.overview,
+     this.releaseDate,
+     this.title,
     this.vote,
   });
 
@@ -53,4 +53,9 @@ extension MovieExtention on MovieDomain {
         title: this.title,
         posterImg: this.posterImg,
       );
+
+}
+extension MovieListExtension on List<MovieDomain> {
+  List<MovieItem> mapToMovieListItem() =>
+      map((e) => e.mapToMoviePresentation()).toList();
 }

@@ -6,8 +6,8 @@ import 'app_state_container.dart';
 
 class MovieDetailAppBar extends StatelessWidget {
   final bool isShrink;
-   final MovieDomain? movieList;
-  MovieDetailAppBar({ this.movieList, required this.isShrink});
+   final MovieDomain movieList;
+  MovieDetailAppBar({ this.movieList, @required this.isShrink});
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +18,23 @@ class MovieDetailAppBar extends StatelessWidget {
       pinned: true,
       snap: true,
       elevation: 50,
-      backgroundColor: AppStateContainer.of(context).theme.primaryColor,
+      backgroundColor: Colors.green,
       iconTheme: IconThemeData(
-        color: isShrink
-            ? AppStateContainer.of(context).theme.accentColor
-            : Colors.white,
+        color: /*isShrink
+           // ? AppStateContainer.of(context).theme.accentColor
+            : */Colors.white,
       ),
       title: AnimatedOpacity(
         duration: Duration(milliseconds: 300),
         opacity: isShrink ? 1.0 : 0.0,
         curve: Curves.ease,
-        child: Text('${movieList!.title}',
+        child: Text('${movieList.title}',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.start,
             softWrap: false,
             style: TextStyle(
-              color: AppStateContainer.of(context).theme.accentColor,
+              // color: AppStateContainer.of(context).theme.accentColor,
               fontSize: 19.0,
               fontWeight: FontWeight.bold,
             )),
@@ -51,7 +51,7 @@ class MovieDetailAppBar extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.cover,
             child: Text(
-              '${movieList!.title}',
+              '${movieList.title}',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.start,
@@ -63,13 +63,14 @@ class MovieDetailAppBar extends StatelessWidget {
             ),
           ),
         ),
-        background: FadeInImage(
-          fit: BoxFit.cover,
-          placeholder: AssetImage(StaticStrings.placeHolderImgPath),
-          image: NetworkImage(
-            '${StaticStrings.imageAppendUrl}${movieList!.posterImg}',
-          ),
-        ),
+        background: Image.network('${StaticStrings.imageAppendUrl}${movieList.posterImg}'),
+        // background: FadeInImage(
+        //   fit: BoxFit.cover,
+        //   placeholder: AssetImage(StaticStrings.placeHolderImgPath),
+        //   image: NetworkImage(
+        //     '${StaticStrings.imageAppendUrl}${movieList.posterImg}',
+        //   ),
+        // ),
       ),
     );
   }

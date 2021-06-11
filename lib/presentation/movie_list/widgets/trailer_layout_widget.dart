@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
 import 'package:newfluttermovieapp/presentation/utils/strings.dart';
@@ -8,9 +9,9 @@ import 'app_state_container.dart';
 
 class TrailerLayout extends StatelessWidget {
   final List<MovieTrailerDomain> trailerData;
-  final String? trailerThumbNail;
+  final String trailerThumbNail;
 
-  TrailerLayout({required this.trailerData, this.trailerThumbNail})
+  TrailerLayout({@required this.trailerData, this.trailerThumbNail})
       : assert(trailerData != null);
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,8 @@ class TrailerLayout extends StatelessWidget {
                     },
                   ),
                 );
-                // Navigator.of(context).pushNamed(MovieLandingRoutePaths.Movie);
+                //todo pass the arguments as class
+                // Navigator.of(context).pushNamed(MovieLandingRoutePaths.Movie, arguments: );
               },
               child: Container(
                 width: 170.0,
@@ -90,3 +92,4 @@ class TrailerLayout extends StatelessWidget {
     );
   }
 }
+*/

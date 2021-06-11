@@ -1,8 +1,10 @@
 
 
 
+import 'package:flutter_base_architecture/exception/base_error.dart';
 import 'package:newfluttermovieapp/datasource/datasources/movies_datasource.dart';
 import 'package:newfluttermovieapp/datasource/remote/providers/rest/request/movie_request.dart';
+import 'package:newfluttermovieapp/datasource/remote/providers/rest/response/movie_response.dart';
 import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
 import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
 import 'package:newfluttermovieapp/domain/usecase/get_movie_trailer_usecase.dart';
@@ -17,7 +19,7 @@ class MoviesDataSourceImpl extends MovieListDataSource {
 
 
 
-  @override
+ /* @override
   Future<MovieDomain> getPopularMovie(GetPopularMovieUseCaseParams params) async{
     try {
       var getmovie = await  _movieRequest.getPopularMovie(params);
@@ -41,13 +43,47 @@ class MoviesDataSourceImpl extends MovieListDataSource {
       throw MovieLandingError(
           type: MovieLandingErrorType.SERVER_MESSAGE);
     }
-    throw UnimplementedError();
+    throw MovieLandingError(
+        type: MovieLandingErrorType.SERVER_MESSAGE);
   }
-
+*/
+  // @override
+  // Future<List<MovieTrailerDomain>> getMovieTrailer( params) {
+  //   // TODO: implement getMovieTrailer
+  //   throw UnimplementedError();
+  // }
   @override
-  Future<List<MovieTrailerDomain>> getMovieTrailer(GetMovieTrailerUseCaseParams params) {
-    // TODO: implement getMovieTrailer
-    throw UnimplementedError();
+  Future<List<MovieDomain>> getPopularMovie(GetPopularMovieUseCaseParams params) async{
+    var response = await _movieRequest.getPopularMovie(params);
+    MovieResponse movieResponse = MovieResponse(response);
+    if (movieResponse.getErrors().length != 0) {
+      BaseError baseError = movieResponse.getErrors().first;
+      switch (baseError.type) {
+        case MovieLandingErrorType.INTERNET_CONNECTIVITY:
+          throw MovieLandingError(
+              message: movieResponse.getErrorString(),
+              type: MovieLandingErrorType.INVALID_RESPONSE);
+        case MovieLandingErrorType.OTHER:
+          throw MovieLandingError(
+              message: movieResponse.getErrorString(),
+              type: MovieLandingErrorType.OTHER);
+        case MovieLandingErrorType.OTHER:
+          throw MovieLandingError(
+              message: movieResponse.getErrorString(),
+              type: MovieLandingErrorType.SERVER_MESSAGE);
+        default:
+          throw MovieLandingError(
+              message: movieResponse.getErrorString(),
+              type: MovieLandingErrorType.SERVER_MESSAGE);
+      }
+    }
+    try {
+      var data = movieResponse.getDataFields();
+      List<MovieDomain> movieData = [];
+      return  movieData;
+    } catch (exception, _) {
+      throw MovieLandingError(
+          message: exception.toString(), type: MovieLandingErrorType.SERVER_MESSAGE);
+    }
   }
-
 }
