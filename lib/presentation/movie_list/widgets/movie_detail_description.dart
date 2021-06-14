@@ -14,9 +14,7 @@ class MovieDetailDescription extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '2.4',
-          // todo:temp static value.it is null need to check
-          // '${movieList.title}',
+          '${movieList.title}',
           textAlign: TextAlign.start,
           style: TextStyle(
             fontSize: 22,
@@ -45,7 +43,10 @@ class MovieDetailDescription extends StatelessWidget {
                     width: 2.0,
                   ),
                   Text(
-                    '${movieList.vote}',
+                    // '${movieList.vote}',
+                    // todo:temp static value.it is null need to check
+
+                  '2.4',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
