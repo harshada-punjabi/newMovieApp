@@ -22,11 +22,11 @@ abstract class MovieLandingRestRequest extends RESTRequest {
   }
 
   @override
-  Future<Response> execute(dynamic page, Map<String, dynamic> params,
+  Future<Response> execute(dynamic endpoint, Map<String, dynamic> params,
       int apiCallMethod, int apiIdentifier,
       {forceRefresh: false}) async {
     return await super
-        .execute(page.toString(), params, apiCallMethod, apiIdentifier,
+        .execute(endpoint, params, apiCallMethod, apiIdentifier,
         forceRefresh: forceRefresh)
         .then((value) => value, onError: (e) {});
   }

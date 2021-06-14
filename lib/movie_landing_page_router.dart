@@ -25,7 +25,6 @@ class MovieLandingRouter {
       case MovieLandingRoutePaths.Movie:
         return PageTransition(
           child: MovieDetailScreen(movieItem: settings.arguments,),
-          // child: AppLauncher(url: '', trailerName: '',),
           settings: RouteSettings(name: MovieLandingRoutePaths.Movie),
           type: PageTransitionType.fade,
           duration: Duration(milliseconds: 450),
