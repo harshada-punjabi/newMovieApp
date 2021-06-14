@@ -8,7 +8,7 @@ abstract class MovieLandingRestRequest extends RESTRequest {
  static const int page = 1;
 
   MovieLandingRestRequest(this.service,
-      {apiUrl = 'http://api.themoviedb.org/3/movie/',
+      {apiUrl = 'http://api.themoviedb.org/3/movie',
         schema: "http",
         host: "api.themoviedb.org"}
       )

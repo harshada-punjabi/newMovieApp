@@ -6,6 +6,7 @@ import 'package:newfluttermovieapp/presentation/movie_list/widgets/app_launcher.
 import 'package:page_transition/page_transition.dart';
 
 import 'movie_landing_page_route_path.dart';
+import 'presentation/movie_list/movie_detail_screen.dart';
 
 class MovieLandingRouter {
 
@@ -23,8 +24,8 @@ class MovieLandingRouter {
       break;
       case MovieLandingRoutePaths.Movie:
         return PageTransition(
-          // child: ContactView(),
-          child: AppLauncher(url: '', trailerName: '',),
+          child: MovieDetailScreen(movieItem: settings.arguments,),
+          // child: AppLauncher(url: '', trailerName: '',),
           settings: RouteSettings(name: MovieLandingRoutePaths.Movie),
           type: PageTransitionType.fade,
           duration: Duration(milliseconds: 450),

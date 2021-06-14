@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
 
 import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
+import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 
 import 'app_state_container.dart';
 
 
 class MovieDetailDescription extends StatelessWidget {
-  final MovieDomain movieList;
+  final MovieItem movieList;
   MovieDetailDescription({ this.movieList}) : assert(movieList != null);
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          '${movieList.title}',
+          '2.4',
+          // todo:temp static value.it is null need to check
+          // '${movieList.title}',
           textAlign: TextAlign.start,
           style: TextStyle(
-            // color: AppStateContainer.of(context).theme.accentColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 25.0,
+            fontSize: 22,
+            color: Colors.white
+                .withOpacity(0.8),
+            fontWeight: FontWeight.w400,
           ),
         ),
         SizedBox(
@@ -43,7 +47,7 @@ class MovieDetailDescription extends StatelessWidget {
                   Text(
                     '${movieList.vote}',
                     style: TextStyle(
-                        // color: AppStateContainer.of(context).theme.accentColor,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 19.0),
                   )
@@ -57,7 +61,7 @@ class MovieDetailDescription extends StatelessWidget {
               'Release Date: ${movieList.releaseDate}',
               textAlign: TextAlign.end,
               style: TextStyle(
-                 // color: AppStateContainer.of(context).theme.accentColor,
+                 color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 17.0),
             ),
@@ -69,21 +73,21 @@ class MovieDetailDescription extends StatelessWidget {
         Text(
           '${movieList.overview}',
           style: TextStyle(
-             // color: AppStateContainer.of(context).theme.accentColor,
-              fontWeight: FontWeight.bold,
+             color: Colors.white,
+              // fontWeight: FontWeight.bold,
               fontSize: 17.0),
         ),
         SizedBox(
           height: 15.0,
         ),
-        Text(
-          'Trailer',
-          style: TextStyle(
-            //color: AppStateContainer.of(context).theme.accentColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 22.0,
-          ),
-        ),
+        // Text(
+        //   'Trailer',
+        //   style: TextStyle(
+        //     color: Colors.white,
+        //     fontWeight: FontWeight.bold,
+        //     fontSize: 22.0,
+        //   ),
+        // ),
       ],
     );
   }

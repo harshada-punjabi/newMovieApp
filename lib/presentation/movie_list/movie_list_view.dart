@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_base_architecture/responsive/orientation_layout.dart';
-import 'package:flutter_base_architecture/responsive/screen_type_layout.dart';
-import 'package:newfluttermovieapp/di/providers.dart';
 import 'package:newfluttermovieapp/presentation/base/view/movie_landing_base_view.dart';
 import 'package:newfluttermovieapp/presentation/movie_list/params/movie_list_param.dart';
 import 'moivie_list_view_mobile.dart';
@@ -27,33 +24,32 @@ class MovieListViewState
 
   @override
   Widget buildBody() {
-    return ScreenTypeLayout(
-      mobile: OrientationLayoutBuilder(
-        portrait: (context) => MovieListViewMobile(),
-      ),
-    );
+    return MovieListViewMobile();
   }
 @override
-  void onModelReady(MovieListViewModel model) {
+  void onModelReady(MovieListViewModel model) async{
     //widget is created
-  // model.scrollController.addListener(_onScroll);
+  model.scrollController.addListener(onScroll);
+   await model.getPopularMovieList();
   print('initState MovieListScreen');
+
 
   }
   @override
   MovieListViewModel initViewModel() {
-    return MovieListViewModel();
+    // return MovieListViewModel(Provider.of<GetPopularMovieUseCase>(context));
+    return MovieListViewModel(Provider.of(context));
   }
-  void _onScroll() {
+  void onScroll() {
     final maxScroll = getViewModel().scrollController.position.maxScrollExtent;
     final currentScroll = getViewModel().scrollController.position.pixels;
-    // if (maxScroll - currentScroll <= _scrollThreshold) {
-      //todo add the movies of next page
-    // }
+    if (maxScroll - currentScroll <= getViewModel().scrollThreshold) {
+     // todo add the movies of next page
+    }
   }
 
   @override
   Color statusBarColor() {
-    return Colors.green;
+    return Color(0xFF181822);
   }
 }

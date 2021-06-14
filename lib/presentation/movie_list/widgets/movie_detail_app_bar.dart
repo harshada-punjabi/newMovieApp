@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
+import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 import 'package:newfluttermovieapp/presentation/utils/strings.dart';
 
 import 'app_state_container.dart';
 
 class MovieDetailAppBar extends StatelessWidget {
   final bool isShrink;
-   final MovieDomain movieList;
+   final MovieItem movieList;
   MovieDetailAppBar({ this.movieList, @required this.isShrink});
 
   @override
@@ -18,7 +19,7 @@ class MovieDetailAppBar extends StatelessWidget {
       pinned: true,
       snap: true,
       elevation: 50,
-      backgroundColor: Colors.green,
+      backgroundColor: Color(0xFF181822),
       iconTheme: IconThemeData(
         color: /*isShrink
            // ? AppStateContainer.of(context).theme.accentColor

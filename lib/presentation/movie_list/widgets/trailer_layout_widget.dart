@@ -1,6 +1,7 @@
-/*
 import 'package:flutter/material.dart';
 import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
+import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
+import 'package:newfluttermovieapp/presentation/model/movie_trailer_item.dart';
 import 'package:newfluttermovieapp/presentation/utils/strings.dart';
 import '../../../movie_landing_page_route_path.dart';
 import 'app_launcher.dart';
@@ -8,7 +9,7 @@ import 'app_state_container.dart';
 
 
 class TrailerLayout extends StatelessWidget {
-  final List<MovieTrailerDomain> trailerData;
+  final List<TrailerItem> trailerData;
   final String trailerThumbNail;
 
   TrailerLayout({@required this.trailerData, this.trailerThumbNail})
@@ -92,4 +93,3 @@ class TrailerLayout extends StatelessWidget {
     );
   }
 }
-*/

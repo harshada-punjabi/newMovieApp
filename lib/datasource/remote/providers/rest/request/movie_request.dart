@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter_base_architecture/data/remote/rest_service.dart';
 import 'package:newfluttermovieapp/datasource/remote/providers/rest/end_points.dart';
 import 'package:newfluttermovieapp/datasource/remote/providers/rest/request/movie_landing_request.dart';
+import 'package:newfluttermovieapp/datasource/remote/providers/rest/response/movie_response.dart';
 
 import 'package:newfluttermovieapp/domain/usecase/get_popular_movie_usecase.dart';
 
@@ -33,7 +34,7 @@ class MovieRequest extends MovieLandingRestRequest{
   //   ]);
   //   return completer.future;
   // }
-  Future getPopularMovie(GetPopularMovieUseCaseParams params) async {
+  Future getPopularMovie({GetPopularMovieUseCaseParams params}) async {
     Map<String, dynamic> params = Map();
     params.putIfAbsent("api_key", () {
       return '802b2c4b88ea1183e50e6b285a27696e';

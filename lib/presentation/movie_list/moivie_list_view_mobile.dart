@@ -9,7 +9,7 @@ import 'movie_list_viewmodel.dart';
 
 class MovieListViewMobile extends MovieBaseModelWidget<MovieListViewModel> {
 
-  final _scrollThreshold = 200.0;
+
   // final MovieListParams movieList;
   MovieListViewMobile();
 
@@ -22,6 +22,7 @@ class MovieListViewMobile extends MovieBaseModelWidget<MovieListViewModel> {
       color: Colors.red,
     );*/
     return Scaffold(
+      backgroundColor:  Color(0xFF181822),
       body: OrientationBuilder(builder: (context, orientation){
        return CustomScrollView(
         controller: model.scrollController,

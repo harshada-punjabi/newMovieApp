@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
+import 'package:newfluttermovieapp/movie_landing_page_route_path.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 import 'package:newfluttermovieapp/presentation/utils/strings.dart';
 
 import 'app_state_container.dart';
 
+double homeHeadershrinkFactor = 1;
+double homeHeadershrinkFactorEnhanced = 1;
 class MovieListWidget extends StatelessWidget {
   MovieListWidget({Key key,  this.movieList})
       : assert(movieList != null),
@@ -21,44 +24,60 @@ class MovieListWidget extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) {
-          //       return MovieTrailerBlocProvider(
-          //         child: MovieDetailScreen(movieList: movieList),
-          //       );
-          //     },
-          //   ),
-          // );
+          Navigator.pushNamed(context, MovieLandingRoutePaths.Movie, arguments: movieList);
         },
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Stack(
           children: [
-            Expanded(
-              flex: 2,
-              child:
-              Image.network('${StaticStrings.imageAppendUrl}${movieList.posterImg}')
-
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Center(
-              child: Text(
-                '${movieList.title}',
-                key: Key('movie_title_text'),
-                style: TextStyle(
-                  //color: AppStateContainer.of(context).theme.accentColor,
-                  fontWeight: FontWeight.bold,
+            Container(
+              foregroundDecoration: BoxDecoration(
+                color: Colors.indigo[900],
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.indigo[800],
+                    Colors.indigo[900].withOpacity(0.7),
+                    Color(0xFF181822),
+                  ],
+                  stops: [0, 0.25, homeHeadershrinkFactor],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                 ),
-                textAlign: TextAlign.center,
+                // border: Border(
+                //   bottom: BorderSide(
+                //       color: Colors.indigo.withOpacity(0.35), width: 0.5),
+                // ),
               ),
             ),
-            SizedBox(
-              height: 10.0,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  flex: 2,
+                  child:
+                  Image.network('${StaticStrings.imageAppendUrl}${movieList.posterImg}')
+
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Center(
+                  child: Text(
+                    '${movieList.title}',
+                    key: Key('movie_title_text'),
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.white
+                          .withOpacity(0.8),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+              ],
             ),
           ],
         ),
