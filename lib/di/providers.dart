@@ -61,11 +61,10 @@ List<SingleChildWidget> dependentServices = [
         GetPopularMovieUseCase getPopularMovieUseCase) =>
         GetPopularMovieUseCase(movieRepository),
   ),
+  ProxyProvider<MovieRepository, GetMovieTrailerUseCase>(
+    update: (context, MovieRepository movieRepository,
+        GetMovieTrailerUseCase getMovieTrailerUseCase) =>
+        GetMovieTrailerUseCase(movieRepository),
+  ),
 
 ];
-// List<SingleChildWidget> uiConsumableProviders = [
-// StreamProvider<UserItem>(
-// initialData: UserItem(),
-// create: (context) =>
-// Provider.of<MovieAppStore>(context, listen: false).userStream,
-// ),];

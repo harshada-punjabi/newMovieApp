@@ -7,5 +7,7 @@ import 'package:newfluttermovieapp/domain/usecase/get_popular_movie_usecase.dart
 abstract class MovieRepository{
   Future<List<MovieDomain>> fetchPopularMovie(
       {GetPopularMovieUseCaseParams params});
-  // Future<List<MovieTrailerDomain>> fetchMovieTrailer( params);
+
+  Future<List<TrailerDomain>> fetchMovieTrailer(
+      {GetMovieTrailerUseCaseParams params});
 }

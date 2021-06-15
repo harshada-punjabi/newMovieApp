@@ -11,14 +11,15 @@ class MovieRepositoryImpl extends MovieRepository {
 
   MovieRepositoryImpl(this.dataSource);
 
-  // @override
-  // Future<List<MovieTrailerDomain>> fetchMovieTrailer( params) {
-  //  return dataSource.getMovieTrailer(params);
-  // }
 
   @override
   Future<List<MovieDomain>> fetchPopularMovie(
       {GetPopularMovieUseCaseParams params}) {
     return dataSource.getPopularMovie(params: params);
+  }
+
+  @override
+  Future<List<TrailerDomain>> fetchMovieTrailer({GetMovieTrailerUseCaseParams params}) {
+    return dataSource.getMovieTrailer(params: params);
   }
 }

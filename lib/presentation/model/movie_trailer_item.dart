@@ -13,7 +13,6 @@ class TrailerItem {
     this.trailerSize
   });
 
-  bool isTemporaryUser() => this.trailerKey == -1;
 }
 
 extension DomainToPresenationExt on TrailerItem {

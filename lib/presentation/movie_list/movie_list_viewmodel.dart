@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:newfluttermovieapp/datasource/remote/providers/rest/response/movie_response.dart';
 import 'package:newfluttermovieapp/domain/usecase/get_popular_movie_usecase.dart';
 import 'package:newfluttermovieapp/presentation/base/view/movie_landing_base_view.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';

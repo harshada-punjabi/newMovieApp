@@ -24,7 +24,7 @@ class MovieListWidget extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, MovieLandingRoutePaths.Movie, arguments: movieList);
+          Navigator.pushNamed(context, MovieLandingRoutePaths.MovieDetail, arguments: movieList);
         },
         child: Stack(
           children: [
