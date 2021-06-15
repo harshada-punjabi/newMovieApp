@@ -31,7 +31,6 @@ class MovieRequest extends MovieLandingRestRequest{
         RESTService.GET, ApiIdentifier.API_POPULAR_MOVIE,forceRefresh: true);
   }
 
-//todo change the method content
   Future getMovieTrailer({GetMovieTrailerUseCaseParams params}) async {
     Map<String, dynamic> paramsMap = Map();
     paramsMap.putIfAbsent("api_key", () {

@@ -24,7 +24,7 @@ final int trailerSize;
   }
 }
 
-extension MovieEntityExtention on TrailerEntity {
+extension extention on TrailerEntity {
   TrailerDomain mapTrailerToDomain() => TrailerDomain(
    trailerKey:trailerKey,
     trailerName: trailerName,
@@ -32,7 +32,7 @@ extension MovieEntityExtention on TrailerEntity {
     trailerSize: trailerSize
   );
 }
-extension MovieListExtension on List<TrailerEntity> {
+extension listExtension on List<TrailerEntity> {
   List<TrailerDomain> mapToTrailerDomain() =>
       map((e) => e.mapTrailerToDomain()).toList();
 }

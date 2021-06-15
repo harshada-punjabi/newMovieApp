@@ -7,7 +7,7 @@ import 'package:newfluttermovieapp/domain/usecase/get_movie_trailer_usecase.dart
 import 'package:newfluttermovieapp/domain/usecase/get_popular_movie_usecase.dart';
 
 class MovieRepositoryImpl extends MovieRepository {
-  final MovieListDataSource dataSource;
+  final MovieDataSource dataSource;
 
   MovieRepositoryImpl(this.dataSource);
 

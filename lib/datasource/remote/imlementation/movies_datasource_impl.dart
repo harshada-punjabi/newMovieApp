@@ -11,7 +11,7 @@ import 'package:newfluttermovieapp/domain/usecase/get_popular_movie_usecase.dart
 import 'package:newfluttermovieapp/presentation/base/view/movie_landing_base_view.dart';
 import 'package:newfluttermovieapp/datasource/entity/trailer_entity.dart';
 
-class MoviesDataSourceImpl extends MovieListDataSource {
+class MoviesDataSourceImpl extends MovieDataSource {
   final MovieRequest _movieRequest;
 
   MoviesDataSourceImpl(this._movieRequest);

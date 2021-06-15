@@ -48,11 +48,11 @@ List<SingleChildWidget> dependentServices = [
         MovieRequest reCaptchaRequest) =>
         MovieRequest(restService),
   ),
-  ProxyProvider<MovieRequest, MovieListDataSource>(
+  ProxyProvider<MovieRequest, MovieDataSource>(
     update: (context, movieRequest, dataSource) =>
         MoviesDataSourceImpl(movieRequest),
   ),
-  ProxyProvider<MovieListDataSource, MovieRepository>(
+  ProxyProvider<MovieDataSource, MovieRepository>(
     update: (context, dataSource, repository) =>
         MovieRepositoryImpl(dataSource),
   ),
