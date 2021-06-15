@@ -40,8 +40,7 @@ class _MovieDetailScreenState extends MovieViewBaseState<MovieDetailViewModel, M
 
   @override
   Widget buildBody() {
-    Scaffold(
-
+  return  Scaffold(
       backgroundColor: Color(0xFF181822).withOpacity(0.9),
       body: SafeArea(
         top: false,

@@ -49,9 +49,6 @@ abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
 
   void onModelReady(VM model) {
     _uiManager = MovieLandingUIManager.of(context);
-    _theme =
-        // Provider.of<MovieLandingPageApplicationViewModel>(context).themeData;
-
     model.onErrorListener((error) {
       showMovieToastMessage(getErrorMessage(error));
     });
@@ -103,7 +100,7 @@ abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
 
   @override
   String onBoardingRoutePath() {
-    return MovieLandingRoutePaths.Landing;
+    return MovieLandingRoutePaths.MovieDetail;
   }
 
   @override
@@ -173,10 +170,6 @@ abstract class MovieBaseModelWidget<VM>
   }
 
   Widget buildContent(BuildContext context, VM model);
-}
-
-SnackBar showMovieSnackBar(String message,
-    {String actionTitle: "", Function() onPressed}) {
 }
 
 showMovieToastMessage(

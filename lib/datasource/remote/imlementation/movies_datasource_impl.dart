@@ -19,7 +19,7 @@ class MoviesDataSourceImpl extends MovieDataSource {
   @override
   Future<List<MovieDomain>> getPopularMovie(
       {GetPopularMovieUseCaseParams params}) async {
-    var response = await _movieRequest.getPopularMovie(params: params);
+    var response = await _movieRequest.getPopularMovie(pageNo: params.pageNo);
     MovieResponse movieResponse = MovieResponse(response);
     if (movieResponse.getErrors().length != 0) {
       BaseError baseError = movieResponse.getErrors().first;
@@ -46,7 +46,7 @@ class MoviesDataSourceImpl extends MovieDataSource {
   @override
   Future<List<TrailerDomain>> getMovieTrailer(
       {GetMovieTrailerUseCaseParams params}) async {
-    var response = await _movieRequest.getMovieTrailer(params: params);
+    var response = await _movieRequest.getMovieTrailer(movieId: params.movieId);
     TrailerResponse trailerResponse = TrailerResponse(response);
     if (trailerResponse.getErrors().length != 0) {
       BaseError baseError = trailerResponse.getErrors().first;
