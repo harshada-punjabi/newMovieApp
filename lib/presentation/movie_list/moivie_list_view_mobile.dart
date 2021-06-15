@@ -10,34 +10,28 @@ class MovieListViewMobile extends MovieBaseModelWidget<MovieListViewModel> {
 
   @override
   Widget buildContent(BuildContext context, MovieListViewModel model) {
-    return Scaffold(
-      backgroundColor:  Color(0xFF181822),
-      body: OrientationBuilder(builder: (context, orientation){
-       return CustomScrollView(
-        controller: model.scrollController,
-        shrinkWrap: true,
-        slivers: [
-          SliverGrid(
-            delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                return MovieListWidget(
-                    movieList: model.movieList[index]);
-              },
-              childCount: model.movieList.length,
-            ),
-            gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount:
-              orientation == Orientation.portrait ? 2 : 3,
-              childAspectRatio: 0.55,
-            ),
+    return CustomScrollView(
+      controller: model.scrollController,
+      shrinkWrap: true,
+      slivers: [
+        SliverGrid(
+          delegate: SliverChildBuilderDelegate(
+                (context, index) {
+              return MovieListWidget(
+                  movieList: model.movieList[index]);
+            },
+            childCount: model.movieList.length,
           ),
-          SliverToBoxAdapter(
-            child: BottomLoadingIndicator(),
-          )
-        ],
-      );
-      }),
+          gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2 ,
+            childAspectRatio: 0.55,
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: BottomLoadingIndicator(),
+        )
+      ],
     );
   }
 

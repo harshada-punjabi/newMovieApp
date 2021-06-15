@@ -15,7 +15,7 @@ import '../api_indentifiers.dart';
 class MovieRequest extends MovieLandingRestRequest{
   MovieRequest(RESTService service) : super(service);
 
-  Future getPopularMovie({int pageNo}) async {
+  Future getPopularMovie({GetPopularMovieUseCaseParams getPopularMovieUseCaseParams}) async {
     Map<String, dynamic> params = Map();
     params.putIfAbsent("api_key", () {
       return '802b2c4b88ea1183e50e6b285a27696e';
@@ -24,14 +24,14 @@ class MovieRequest extends MovieLandingRestRequest{
       return 'en-US';
     });
     params.putIfAbsent("page", () {
-      return '$pageNo';
+      return '1';
     });
     print('the end point${Endpoint.POPULAR_MOVIE}');
-    return await execute(Endpoint.POPULAR_MOVIE, params,
+    return await execute(Endpoint.POPULAR_MOVIE.toString(), params,
         RESTService.GET, ApiIdentifier.API_POPULAR_MOVIE,forceRefresh: true);
   }
 
-  Future getMovieTrailer({int pageNo, int movieId}) async {
+  Future getMovieTrailer({GetMovieTrailerUseCaseParams getMovieTrailerUseCaseParams}) async {
     Map<String, dynamic> params = Map();
     params.putIfAbsent("api_key", () {
       return '802b2c4b88ea1183e50e6b285a27696e';
@@ -40,10 +40,10 @@ class MovieRequest extends MovieLandingRestRequest{
       return 'en-US';
     });
     params.putIfAbsent("page", () {
-      return '$pageNo';
+      return '1';
     });
     print('the end point trailer${Endpoint.MOVIE_TRAILER}');
-    return await execute(movieId.toString()+Endpoint.MOVIE_TRAILER, params,
+    return await execute(getMovieTrailerUseCaseParams.movieId.toString()+Endpoint.MOVIE_TRAILER, params,
         RESTService.GET, ApiIdentifier.API_MOVIE_TRAILER,forceRefresh: true);
   }
 

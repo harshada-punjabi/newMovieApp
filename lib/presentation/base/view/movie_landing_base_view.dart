@@ -115,7 +115,7 @@ abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
 
   @override
   Color scaffoldColor() {
-    return Colors.white;
+    return Color(0xFF181822);
   }
 
   bool extendBodyBehindAppBar() {

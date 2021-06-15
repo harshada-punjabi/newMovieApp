@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'empty_widget.dart';
+import '../../movie_list/widgets/empty_widget.dart';
 
 class AppLauncher extends StatefulWidget {
   final String url;

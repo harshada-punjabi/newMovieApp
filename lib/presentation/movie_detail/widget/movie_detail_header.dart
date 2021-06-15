@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
+import 'package:newfluttermovieapp/presentation/utils/strings.dart';
 
 
 class MoviePageSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
@@ -43,7 +44,7 @@ class MoviePageSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
             child: CachedNetworkImage(
-              imageUrl: movie.posterImg,
+              imageUrl: '${StaticStrings.imageAppendUrl}${movie.posterImg}',
               fit: BoxFit.cover,
               alignment: Alignment.center,
             ),
@@ -63,7 +64,7 @@ class MoviePageSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: CachedNetworkImage(
-                    imageUrl: movie.posterImg,
+                    imageUrl: '${StaticStrings.imageAppendUrl}${movie.posterImg}',
                     fit: BoxFit.cover,
                     alignment: Alignment.center,
                   ),
@@ -113,7 +114,7 @@ class MoviePageSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
                         ),
                         SizedBox(width: 4),
                         Text(
-                          '(${movie.vote})',
+                          '(${movie.voteCount})',
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.white.withOpacity(0.8),
@@ -123,7 +124,7 @@ class MoviePageSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Score: ${movie.vote}',
+                      'Score: ${movie.voteCount}',
                       style: TextStyle(
                         fontSize: 13,
                         color: Colors.white.withOpacity(0.8),

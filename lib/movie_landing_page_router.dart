@@ -3,7 +3,7 @@ import 'package:newfluttermovieapp/presentation/movie_list/movie_list_view.dart'
 import 'package:page_transition/page_transition.dart';
 
 import 'movie_landing_page_route_path.dart';
-import 'presentation/movie_list/movie_detail_screen.dart';
+import 'presentation/movie_detail/movie_detail_view.dart';
 
 class MovieLandingRouter {
 

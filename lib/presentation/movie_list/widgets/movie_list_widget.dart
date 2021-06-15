@@ -3,10 +3,10 @@ import 'package:newfluttermovieapp/movie_landing_page_route_path.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 import 'package:newfluttermovieapp/presentation/utils/strings.dart';
 
-import 'app_state_container.dart';
 
 double homeHeadershrinkFactor = 1;
 double homeHeadershrinkFactorEnhanced = 1;
+
 class MovieListWidget extends StatelessWidget {
   MovieListWidget({Key key,  this.movieList})
       : assert(movieList != null),

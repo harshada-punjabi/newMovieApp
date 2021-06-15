@@ -19,54 +19,40 @@ class MoviesDataSourceImpl extends MovieDataSource {
   @override
   Future<List<MovieDomain>> getPopularMovie(
       {GetPopularMovieUseCaseParams params}) async {
-    var response = await _movieRequest.getPopularMovie(pageNo: params.pageNo);
+    try{
+    var response = await _movieRequest.getPopularMovie(getPopularMovieUseCaseParams: params);
     MovieResponse movieResponse = MovieResponse(response);
     if (movieResponse.getErrors().length != 0) {
-      BaseError baseError = movieResponse.getErrors().first;
-      print('error>>> ${movieResponse.getErrors().first}');
-      switch (baseError.type) {
-        case MovieLandingErrorType.INTERNET_CONNECTIVITY:
-          throw MovieLandingError(
-              message: movieResponse.getErrorString(),
-              type: MovieLandingErrorType.INTERNET_CONNECTIVITY);
-        case MovieLandingErrorType.OTHER:
-          throw MovieLandingError(
-              message: movieResponse.getErrorString(),
-              type: MovieLandingErrorType.OTHER);
-        default:
-          throw MovieLandingError(
-              message: movieResponse.getErrorString(),
-              type: MovieLandingErrorType.SERVER_MESSAGE);
-      }
+     throw MovieLandingError(
+          message: movieResponse.getErrorString(),
+          type: MovieLandingErrorType.SERVER_MESSAGE);
     } else {
       return movieResponse.getData().mapToDomain();
+    }
+    } catch(exception){
+     throw MovieLandingError(
+          message: exception.toString(),
+          type: MovieLandingErrorType.SERVER_MESSAGE);
     }
   }
 
   @override
   Future<List<TrailerDomain>> getMovieTrailer(
       {GetMovieTrailerUseCaseParams params}) async {
-    var response = await _movieRequest.getMovieTrailer(movieId: params.movieId);
+    try{
+    var response = await _movieRequest.getMovieTrailer(getMovieTrailerUseCaseParams: params);
     TrailerResponse trailerResponse = TrailerResponse(response);
     if (trailerResponse.getErrors().length != 0) {
-      BaseError baseError = trailerResponse.getErrors().first;
-      print('error>>> ${trailerResponse.getErrors().first}');
-      switch (baseError.type) {
-        case MovieLandingErrorType.INTERNET_CONNECTIVITY:
-          throw MovieLandingError(
-              message: trailerResponse.getErrorString(),
-              type: MovieLandingErrorType.INTERNET_CONNECTIVITY);
-        case MovieLandingErrorType.OTHER:
-          throw MovieLandingError(
-              message: trailerResponse.getErrorString(),
-              type: MovieLandingErrorType.OTHER);
-        default:
-          throw MovieLandingError(
-              message: trailerResponse.getErrorString(),
-              type: MovieLandingErrorType.SERVER_MESSAGE);
-      }
+      throw MovieLandingError(
+          message: trailerResponse.getErrorString(),
+          type: MovieLandingErrorType.SERVER_MESSAGE);
     } else {
       return trailerResponse.getData().mapToTrailerDomain();
+    }
+    }catch(exception){
+      throw MovieLandingError(
+          message: exception.toString(),
+          type: MovieLandingErrorType.SERVER_MESSAGE);
     }
   }
 }

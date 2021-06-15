@@ -1,4 +1,5 @@
 import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
+
 import 'maps_extensions.dart';
 
 class MovieEntity {

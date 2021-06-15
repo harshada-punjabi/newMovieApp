@@ -21,9 +21,12 @@ class GetMovieTrailerUseCase extends BaseUseCase<List<TrailerItem>, GetMovieTrai
 
 class GetMovieTrailerUseCaseParams {
   final int movieId;
+  final int pageNo;
 
 
   GetMovieTrailerUseCaseParams(
-      {this.movieId = 1,
+      {
+        this.movieId = 1,
+        this.pageNo = 1,
       });
 }

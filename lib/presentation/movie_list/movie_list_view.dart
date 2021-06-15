@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_base_architecture/responsive/orientation_layout.dart';
+import 'package:flutter_base_architecture/responsive/screen_type_layout.dart';
 import 'package:newfluttermovieapp/presentation/base/view/movie_landing_base_view.dart';
 import 'moivie_list_view_mobile.dart';
 import 'movie_list_viewmodel.dart';
@@ -23,7 +25,12 @@ class MovieListViewState
 
   @override
   Widget buildBody() {
-    return MovieListViewMobile();
+    return ScreenTypeLayout(
+      mobile: OrientationLayoutBuilder(
+        portrait: (context) => MovieListViewMobile(),
+      ),
+    );
+
   }
 @override
   void onModelReady(MovieListViewModel model) async{
@@ -36,7 +43,7 @@ class MovieListViewState
   }
   @override
   MovieListViewModel initViewModel() {
-    // return MovieListViewModel(Provider.of<GetPopularMovieUseCase>(context));
+
     return MovieListViewModel(Provider.of(context));
   }
   void onScroll() {
