@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 
-import 'app_state_container.dart';
 
 
 class MovieDetailDescription extends StatelessWidget {

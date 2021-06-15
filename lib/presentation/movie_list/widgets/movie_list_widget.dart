@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
 import 'package:newfluttermovieapp/movie_landing_page_route_path.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 import 'package:newfluttermovieapp/presentation/utils/strings.dart';

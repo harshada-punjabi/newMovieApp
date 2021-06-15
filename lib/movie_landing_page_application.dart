@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:newfluttermovieapp/movie_landing_page_application_viewmodel.dart';
-import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
@@ -26,7 +24,6 @@ class MovieLandingPageApplication extends StatelessWidget {
           ],
           background: Container(color: Color(0xFFF5F5F5))),
       debugShowCheckedModeBanner: false,
-      // theme: Provider.of<MovieLandingPageApplicationViewModel>(context).themeData,
       initialRoute: MovieLandingRoutePaths.Landing,
       onGenerateRoute: MovieLandingRouter.generateRoute,
     );

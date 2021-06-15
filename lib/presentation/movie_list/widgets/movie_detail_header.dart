@@ -37,10 +37,10 @@ class MoviePageSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
-              // border: Border(
-              //   bottom: BorderSide(
-              //       color: Colors.indigo.withOpacity(0.35), width: 0.5),
-              // ),
+              border: Border(
+                bottom: BorderSide(
+                    color: Colors.indigo.withOpacity(0.35), width: 0.5),
+              ),
             ),
             child: CachedNetworkImage(
               imageUrl: movie.posterImg,

@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'app_state_container.dart';
 import 'empty_widget.dart';
 
 class AppLauncher extends StatefulWidget {
@@ -37,7 +36,6 @@ class _AppLauncherState extends State<AppLauncher> {
           softWrap: true,
           maxLines: 1,
           style: TextStyle(
-            // color: AppStateContainer.of(context).theme.accentColor,
             fontWeight: FontWeight.bold,
             fontSize: 17.0,
           ),

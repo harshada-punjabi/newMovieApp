@@ -1,4 +1,3 @@
-import 'package:flutter_base_architecture/dto/base_dto.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 
 class MovieDomain {

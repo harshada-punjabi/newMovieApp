@@ -121,15 +121,6 @@ abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
     return Colors.white;
   }
 
-  // @override
-  // Color statusBarColor() {
-  //   return _theme.appBarTheme.color;
-  // }
-
-  // Color appBarColor() {
-  //   return _theme.appBarTheme.color;
-  // }
-
   bool extendBodyBehindAppBar() {
     return true;
   }
@@ -163,25 +154,6 @@ class MovieLandingErrorType extends BaseErrorType {
 
 class MovieLandingErrorParser extends BaseErrorParser {
   MovieLandingErrorParser() : super();
-
-  // @override
-  // String parseError(BuildContext context, BaseError error) {
-  //   var errorMessage = super.parseError(context, error);
-  //   if (errorMessage != null) {
-  //     return errorMessage;
-  //   }
-  //   switch (error.type) {
-  //     case MovieLandingErrorType.OTHER:
-  //     case MovieLandingErrorType.SERVER_MESSAGE:
-  //       return S.of(context).unExpectedError;
-  //       break;
-  //     case MovieLandingErrorType.RECAPTCHA_VERIFICATION_FAILED:
-  //       return S.of(context).reCaptchaVerificationFailed;
-  //     default:
-  //       return S.of(context).unExpectedError;
-  //       break;
-  //   }
-  // }
 }
 
 abstract class MovieBaseModelWidget<VM>
@@ -196,8 +168,6 @@ abstract class MovieBaseModelWidget<VM>
   @override
   @mustCallSuper
   Widget build(BuildContext context, VM model) {
-    // _theme =
-        // Provider.of<MovieLandingPageApplicationViewModel>(context).themeData;
     _uiManager = MovieLandingUIManager.of(context);
     return buildContent(context, model);
   }
@@ -220,7 +190,6 @@ showMovieToastMessage(
     toastLength: Toast.LENGTH_LONG,
     gravity: gravity,
     timeInSecForIosWeb: 3,
-    // ignore: unnecessary_null_comparison
     backgroundColor: backgroundColor != null
         ? backgroundColor
         : AppColors.black.withOpacity(0.5),

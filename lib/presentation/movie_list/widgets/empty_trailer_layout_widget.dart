@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'app_state_container.dart';
 
 class EmptyTrailerLayout extends StatelessWidget {
   @override

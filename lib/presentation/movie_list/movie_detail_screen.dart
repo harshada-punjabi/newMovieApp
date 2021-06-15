@@ -38,13 +38,10 @@ class _MovieDetailScreenState extends MovieViewBaseState<MovieDetailViewModel, M
   }
 
 
-  // Link:- https://flutter-widget.live/widgets/NestedScrollView
-
   @override
   Widget buildBody() {
     Scaffold(
 
-      // backgroundColor: AppStateContainer.of(context).theme.primaryColor,
       backgroundColor: Color(0xFF181822).withOpacity(0.9),
       body: SafeArea(
         top: false,

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
 import 'package:newfluttermovieapp/presentation/model/movie_item.dart';
 import 'package:newfluttermovieapp/presentation/utils/strings.dart';
 
-import 'app_state_container.dart';
 
 class MovieDetailAppBar extends StatelessWidget {
   final bool isShrink;
@@ -21,9 +19,7 @@ class MovieDetailAppBar extends StatelessWidget {
       elevation: 50,
       backgroundColor: Color(0xFF181822),
       iconTheme: IconThemeData(
-        color: /*isShrink
-           // ? AppStateContainer.of(context).theme.accentColor
-            : */Colors.white,
+        color:Colors.white,
       ),
       title: AnimatedOpacity(
         duration: Duration(milliseconds: 300),
@@ -35,8 +31,7 @@ class MovieDetailAppBar extends StatelessWidget {
             textAlign: TextAlign.start,
             softWrap: false,
             style: TextStyle(
-              // color: AppStateContainer.of(context).theme.accentColor,
-              fontSize: 19.0,
+
               fontWeight: FontWeight.bold,
             )),
       ),
@@ -65,13 +60,6 @@ class MovieDetailAppBar extends StatelessWidget {
           ),
         ),
         background: Image.network('${StaticStrings.imageAppendUrl}${movieList.posterImg}'),
-        // background: FadeInImage(
-        //   fit: BoxFit.cover,
-        //   placeholder: AssetImage(StaticStrings.placeHolderImgPath),
-        //   image: NetworkImage(
-        //     '${StaticStrings.imageAppendUrl}${movieList.posterImg}',
-        //   ),
-        // ),
       ),
     );
   }

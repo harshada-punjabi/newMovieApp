@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:newfluttermovieapp/presentation/base/view/movie_landing_base_view.dart';
-import 'package:newfluttermovieapp/presentation/movie_list/params/movie_list_param.dart';
 import 'moivie_list_view_mobile.dart';
 import 'movie_list_viewmodel.dart';
 import 'package:provider/provider.dart';

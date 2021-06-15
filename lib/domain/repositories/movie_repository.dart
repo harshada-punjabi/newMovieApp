@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
 import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
 import 'package:newfluttermovieapp/domain/usecase/get_movie_trailer_usecase.dart';

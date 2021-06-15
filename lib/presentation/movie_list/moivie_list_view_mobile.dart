@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
 import 'package:newfluttermovieapp/presentation/base/view/movie_landing_base_view.dart';
-import 'package:newfluttermovieapp/presentation/movie_list/params/movie_list_param.dart';
 import 'package:newfluttermovieapp/presentation/movie_list/widgets/bottom_loading_indicator.dart';
 import 'package:newfluttermovieapp/presentation/movie_list/widgets/movie_list_widget.dart';
 

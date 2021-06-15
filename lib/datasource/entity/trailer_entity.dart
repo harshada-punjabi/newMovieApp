@@ -1,7 +1,6 @@
 
 import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
 import 'maps_extensions.dart';
-//todo change the class according to the response
 class TrailerEntity {
 final  String trailerKey;
 final String trailerName;
