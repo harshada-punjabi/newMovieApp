@@ -207,27 +207,6 @@ abstract class MovieBaseModelWidget<VM>
 
 SnackBar showMovieSnackBar(String message,
     {String actionTitle: "", Function() onPressed}) {
-  /*return SnackBar(
-    content: Row(children: <Widget>[
-      SvgPicture.asset(AssetIcons.notification.assetName),
-      Padding(
-        padding: EdgeInsets.only(left: 10),
-        child: Text(message,
-            style: TextStyle(
-              fontFamily: 'Barlow',
-              color: AppColors.white,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              fontStyle: FontStyle.normal,
-            )),
-      )
-    ]),
-    backgroundColor: AppColors.black,
-    action: SnackBarAction(
-        label: actionTitle,
-        textColor: AppColors.primaryColor,
-        onPressed: onPressed),
-  );*/
 }
 
 showMovieToastMessage(

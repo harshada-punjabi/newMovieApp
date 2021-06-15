@@ -8,19 +8,10 @@ import 'package:newfluttermovieapp/presentation/movie_list/widgets/movie_list_wi
 import 'movie_list_viewmodel.dart';
 
 class MovieListViewMobile extends MovieBaseModelWidget<MovieListViewModel> {
-
-
-  // final MovieListParams movieList;
   MovieListViewMobile();
 
   @override
   Widget buildContent(BuildContext context, MovieListViewModel model) {
-    print('the data of the movie ${model.movieList.length}');
-    /*return Container(
-      height: 200,
-      width: 200,
-      color: Colors.red,
-    );*/
     return Scaffold(
       backgroundColor:  Color(0xFF181822),
       body: OrientationBuilder(builder: (context, orientation){

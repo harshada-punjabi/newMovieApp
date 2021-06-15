@@ -22,10 +22,10 @@ class MovieLandingRouter {
           duration: Duration(milliseconds: 450),
         );
       break;
-      case MovieLandingRoutePaths.Movie:
+      case MovieLandingRoutePaths.MovieDetail:
         return PageTransition(
           child: MovieDetailScreen(movieItem: settings.arguments,),
-          settings: RouteSettings(name: MovieLandingRoutePaths.Movie),
+          settings: RouteSettings(name: MovieLandingRoutePaths.MovieDetail),
           type: PageTransitionType.fade,
           duration: Duration(milliseconds: 450),
         );
