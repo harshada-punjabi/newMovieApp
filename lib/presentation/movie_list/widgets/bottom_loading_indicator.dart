@@ -10,14 +10,10 @@ class BottomLoadingIndicator extends StatelessWidget {
       alignment: Alignment.center,
       height: 100.0,
       child: Center(
-        child: Theme(
-          data: Theme.of(context).copyWith(
-            accentColor: AppStateContainer.of(context).theme.primaryColor,
-          ),
-          child: new CircularProgressIndicator(
+          child: CircularProgressIndicator(
             strokeWidth: 3,
           ),
-        ),
+
       ),
     );
   }

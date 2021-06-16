@@ -2,13 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'app_state_container.dart';
-import 'empty_widget.dart';
+import '../../movie_list/widgets/empty_widget.dart';
 
 class AppLauncher extends StatefulWidget {
   final String url;
-  final String? trailerName;
-  AppLauncher({required this.url, this.trailerName}) : assert(url != null);
+  final String trailerName;
+  AppLauncher({@required this.url, this.trailerName}) : assert(url != null);
 
   @override
   _AppLauncherState createState() => _AppLauncherState();
@@ -18,7 +17,7 @@ class _AppLauncherState extends State<AppLauncher> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   final _key = UniqueKey();
-  late bool _isLoadingPage;
+   bool _isLoadingPage;
 
   @override
   void initState() {
@@ -37,7 +36,6 @@ class _AppLauncherState extends State<AppLauncher> {
           softWrap: true,
           maxLines: 1,
           style: TextStyle(
-            color: AppStateContainer.of(context).theme.accentColor,
             fontWeight: FontWeight.bold,
             fontSize: 17.0,
           ),

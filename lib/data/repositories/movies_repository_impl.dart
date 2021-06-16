@@ -7,17 +7,19 @@ import 'package:newfluttermovieapp/domain/usecase/get_movie_trailer_usecase.dart
 import 'package:newfluttermovieapp/domain/usecase/get_popular_movie_usecase.dart';
 
 class MovieRepositoryImpl extends MovieRepository {
-  final MovieListDataSource dataSource;
+  final MovieDataSource dataSource;
 
   MovieRepositoryImpl(this.dataSource);
 
+
   @override
-  Future<List<MovieTrailerDomain>> fetchMovieTrailer(GetMovieTrailerUseCaseParams params) {
-   return dataSource.getMovieTrailer(params);
+  Future<List<MovieDomain>> fetchPopularMovie(
+      {GetPopularMovieUseCaseParams params}) {
+    return dataSource.getPopularMovie(params: params);
   }
 
   @override
-  Future<MovieDomain> fetchPopularMovie(GetPopularMovieUseCaseParams params) {
-    return dataSource.getPopularMovie(params);
+  Future<List<TrailerDomain>> fetchMovieTrailer({GetMovieTrailerUseCaseParams params}) {
+    return dataSource.getMovieTrailer(params: params);
   }
 }

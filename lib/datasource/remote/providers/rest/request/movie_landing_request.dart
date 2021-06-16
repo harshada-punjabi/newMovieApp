@@ -8,9 +8,7 @@ abstract class MovieLandingRestRequest extends RESTRequest {
  static const int page = 1;
 
   MovieLandingRestRequest(this.service,
-      {apiUrl = '${StaticStrings.popularRequestTag}${StaticStrings.apiKeyRequestTag}'
-          '${StaticStrings.theMovieBbApiKey}${StaticStrings.languageRequestTag}'
-          '${StaticStrings.pageRequestTag}1',
+      {apiUrl = 'http://api.themoviedb.org/3/movie',
         schema: "http",
         host: "api.themoviedb.org"}
       )
@@ -24,7 +22,7 @@ abstract class MovieLandingRestRequest extends RESTRequest {
   }
 
   @override
-  Future<Response> execute(String endpoint, Map<String, dynamic> params,
+  Future<Response> execute(dynamic endpoint, Map<String, dynamic> params,
       int apiCallMethod, int apiIdentifier,
       {forceRefresh: false}) async {
     return await super

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
+import 'package:newfluttermovieapp/presentation/model/movie_trailer_item.dart';
 import 'package:newfluttermovieapp/presentation/utils/strings.dart';
-import '../../../movie_landing_page_route_path.dart';
 import 'app_launcher.dart';
-import 'app_state_container.dart';
 
 
 class TrailerLayout extends StatelessWidget {
-  final List<MovieTrailerDomain> trailerData;
-  final String? trailerThumbNail;
+  final List<TrailerItem> trailerData;
+  final String trailerThumbNail;
 
-  TrailerLayout({required this.trailerData, this.trailerThumbNail})
+  TrailerLayout({@required this.trailerData, this.trailerThumbNail})
       : assert(trailerData != null);
   @override
   Widget build(BuildContext context) {
@@ -35,7 +33,8 @@ class TrailerLayout extends StatelessWidget {
                     },
                   ),
                 );
-                // Navigator.of(context).pushNamed(MovieLandingRoutePaths.Movie);
+                //todo pass the arguments as class
+                // Navigator.of(context).pushNamed(MovieLandingRoutePaths.Movie, arguments: );
               },
               child: Container(
                 width: 170.0,
@@ -47,8 +46,6 @@ class TrailerLayout extends StatelessWidget {
                       child: Container(
                         height: 120.0,
                         decoration: BoxDecoration(
-                          color:
-                              AppStateContainer.of(context).theme.accentColor,
                           image: DecorationImage(
                             image: NetworkImage(
                               '${StaticStrings.imageAppendUrl}$trailerThumbNail',
@@ -74,7 +71,6 @@ class TrailerLayout extends StatelessWidget {
                       maxLines: 1,
                       softWrap: true,
                       style: TextStyle(
-                        color: AppStateContainer.of(context).theme.accentColor,
                         fontSize: 14.0,
                         fontWeight: FontWeight.bold,
                       ),

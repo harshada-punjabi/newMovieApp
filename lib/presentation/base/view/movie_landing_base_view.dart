@@ -7,12 +7,8 @@ import 'package:flutter_base_architecture/ui/base_statefulwidget.dart';
 import 'package:flutter_base_architecture/ui/base_widget.dart';
 import 'package:flutter_base_architecture/viewmodels/base_view_model.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-import 'package:newfluttermovieapp/domain/model/movie_domain.dart';
+import 'package:newfluttermovieapp/domain/model/user_domain.dart';
 import 'package:newfluttermovieapp/presentation/utils/app_colors.dart';
-import 'package:provider/provider.dart';
-
-import '../../../movie_landing_page_application_viewmodel.dart';
 import '../../../movie_landing_page_route_path.dart';
 import '../movie_landing_ui_manager.dart';
 
@@ -30,18 +26,18 @@ class MovieLandingBaseViewModel extends BaseViewModel {
 
 abstract class MovieBaseView<VM extends MovieLandingBaseViewModel>
     extends BaseStatefulWidget<VM> {
-  MovieBaseView({Key? key}) : super(key: key);
+  MovieBaseView({Key key}) : super(key: key);
 }
 
 abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
         T extends MovieBaseView<VM>>
-    extends BaseStatefulScreen<VM, T, MovieLandingErrorParser, MovieDomain> {
-  MovieLandingUIManager? _uiManager;
+    extends BaseStatefulScreen<VM, T, MovieLandingErrorParser, UserDomain> {
+  MovieLandingUIManager _uiManager;
 
-  MovieLandingUIManager? get uiManager => _uiManager;
-  ThemeData? _theme;
+  MovieLandingUIManager get uiManager => _uiManager;
+  ThemeData _theme;
 
-  ThemeData? get theme => _theme;
+  ThemeData get theme => _theme;
 
   @override
   PreferredSizeWidget buildAppbar() {
@@ -53,14 +49,10 @@ abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
 
   void onModelReady(VM model) {
     _uiManager = MovieLandingUIManager.of(context);
-    _theme =
-        Provider.of<MovieLandingPageApplicationViewModel>(context).themeData;
-
     model.onErrorListener((error) {
       showMovieToastMessage(getErrorMessage(error));
     });
   }
-
   @override
   Future<bool> userIsLoggedIn() async {
     bool status = await super.userIsLoggedIn();
@@ -70,7 +62,6 @@ abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
     }
     return status;
   }
-
   @override
   Widget getLayout() {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -106,15 +97,16 @@ abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
     );
   }
 
+
   @override
   String onBoardingRoutePath() {
-    return MovieLandingRoutePaths.Landing;
+    return MovieLandingRoutePaths.MovieDetail;
   }
 
-  // @override
-  // String widgetErrorMessage() {
-  //   // return S.of(context).unExpectedError;
-  // }
+  @override
+  String widgetErrorMessage() {
+    return 'unexpected error';
+  }
 
   @override
   String errorLogo() {
@@ -122,17 +114,8 @@ abstract class MovieViewBaseState<VM extends MovieLandingBaseViewModel,
   }
 
   @override
-  Color? scaffoldColor() {
-    return _theme!.scaffoldBackgroundColor;
-  }
-
-  @override
-  Color? statusBarColor() {
-    return _theme!.appBarTheme.color;
-  }
-
-  Color? appBarColor() {
-    return _theme!.appBarTheme.color;
+  Color scaffoldColor() {
+    return Color(0xFF181822);
   }
 
   bool extendBodyBehindAppBar() {
@@ -161,48 +144,27 @@ class MovieLandingErrorType extends BaseErrorType {
       const MovieLandingErrorType(2);
   static const MovieLandingErrorType SERVER_MESSAGE =
       const MovieLandingErrorType(3);
-  static const MovieLandingErrorType OTHER = const MovieLandingErrorType(4);
-  static const MovieLandingErrorType RECAPTCHA_VERIFICATION_FAILED =
-      const MovieLandingErrorType(5);
+  static const MovieLandingErrorType OTHER =
+  const MovieLandingErrorType(4);
+
 }
 
 class MovieLandingErrorParser extends BaseErrorParser {
   MovieLandingErrorParser() : super();
-
-  // @override
-  // String parseError(BuildContext context, BaseError error) {
-  //   var errorMessage = super.parseError(context, error);
-  //   if (errorMessage != null) {
-  //     return errorMessage;
-  //   }
-  //   switch (error.type) {
-  //     case MovieLandingErrorType.OTHER:
-  //     case MovieLandingErrorType.SERVER_MESSAGE:
-  //       return S.of(context).unExpectedError;
-  //       break;
-  //     case MovieLandingErrorType.RECAPTCHA_VERIFICATION_FAILED:
-  //       return S.of(context).reCaptchaVerificationFailed;
-  //     default:
-  //       return S.of(context).unExpectedError;
-  //       break;
-  //   }
-  // }
 }
 
 abstract class MovieBaseModelWidget<VM>
     extends BaseModelWidget<VM, MovieLandingErrorParser> {
-  MovieLandingUIManager? _uiManager;
+  MovieLandingUIManager _uiManager;
 
-  MovieLandingUIManager? get uiManager => _uiManager;
-  ThemeData? _theme;
+  MovieLandingUIManager get uiManager => _uiManager;
+  ThemeData _theme;
 
-  ThemeData? get theme => _theme;
+  ThemeData get theme => _theme;
 
   @override
   @mustCallSuper
   Widget build(BuildContext context, VM model) {
-    _theme =
-        Provider.of<MovieLandingPageApplicationViewModel>(context).themeData;
     _uiManager = MovieLandingUIManager.of(context);
     return buildContent(context, model);
   }
@@ -210,35 +172,10 @@ abstract class MovieBaseModelWidget<VM>
   Widget buildContent(BuildContext context, VM model);
 }
 
-SnackBar? showMovieSnackBar(String message,
-    {String actionTitle: "", Function()? onPressed}) {
-  /*return SnackBar(
-    content: Row(children: <Widget>[
-      SvgPicture.asset(AssetIcons.notification.assetName),
-      Padding(
-        padding: EdgeInsets.only(left: 10),
-        child: Text(message,
-            style: TextStyle(
-              fontFamily: 'Barlow',
-              color: AppColors.white,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              fontStyle: FontStyle.normal,
-            )),
-      )
-    ]),
-    backgroundColor: AppColors.black,
-    action: SnackBarAction(
-        label: actionTitle,
-        textColor: AppColors.primaryColor,
-        onPressed: onPressed),
-  );*/
-}
-
 showMovieToastMessage(
   String message, {
-   Color? backgroundColor,
-   Color? textColor,
+   Color backgroundColor,
+   Color textColor,
   ToastGravity gravity: ToastGravity.BOTTOM,
 }) {
   Fluttertoast.showToast(
@@ -246,7 +183,6 @@ showMovieToastMessage(
     toastLength: Toast.LENGTH_LONG,
     gravity: gravity,
     timeInSecForIosWeb: 3,
-    // ignore: unnecessary_null_comparison
     backgroundColor: backgroundColor != null
         ? backgroundColor
         : AppColors.black.withOpacity(0.5),

@@ -6,14 +6,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AppStateContainer extends StatefulWidget {
   final Widget child;
 
-  AppStateContainer({required this.child});
+  AppStateContainer({@required this.child});
 
   @override
   _AppStateContainerState createState() => _AppStateContainerState();
 
   static _AppStateContainerState of(BuildContext context) {
     return context
-        .dependOnInheritedWidgetOfExactType<AppStateContainerProvider>()!
+        .dependOnInheritedWidgetOfExactType<AppStateContainerProvider>()
         .appStateContainer;
   }
 }
@@ -64,7 +64,7 @@ class AppStateContainerProvider extends InheritedWidget {
   final _AppStateContainerState appStateContainer;
 
   AppStateContainerProvider(
-      {Key? key, required this.appStateContainer, required Widget child})
+      {Key key, @required this.appStateContainer, @required Widget child})
       : super(key: key, child: child);
 
   @override

@@ -1,5 +1,5 @@
 extension DefaultMap<K, V> on Map<K, V> {
-  V? getOrElse(K key, V defaultValue) {
+  V getOrElse(K key, V defaultValue) {
     if (this.containsKey(key)) {
       if (((this[key] == null) ||
           (defaultValue is String
@@ -14,3 +14,5 @@ extension DefaultMap<K, V> on Map<K, V> {
     }
   }
 }
+
+

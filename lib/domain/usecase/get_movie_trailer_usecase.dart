@@ -1,25 +1,32 @@
 
-
+import 'package:flutter/material.dart';
 import 'package:newfluttermovieapp/domain/model/movie_trailer_domain.dart';
 import 'package:newfluttermovieapp/domain/repositories/movie_repository.dart';
+import 'package:newfluttermovieapp/presentation/model/movie_trailer_item.dart';
 import 'base_usecase.dart';
 
-class GetPopularMovieUseCase extends BaseUseCase<List<MovieTrailerDomain>, GetMovieTrailerUseCaseParams>{
+class GetMovieTrailerUseCase extends BaseUseCase<List<TrailerItem>, GetMovieTrailerUseCaseParams>{
   final MovieRepository _repository;
-  GetPopularMovieUseCase(this._repository);
+  GetMovieTrailerUseCase(this._repository);
   @override
-  Future<List<MovieTrailerDomain>> buildUseCaseFuture(
-      {required GetMovieTrailerUseCaseParams params}) async {
-    return _repository.fetchMovieTrailer(params);
+  Future<List<TrailerItem>> buildUseCaseFuture(
+      {@required GetMovieTrailerUseCaseParams params}) async {
+
+    List<TrailerDomain> movieTrailerDomainList  = await _repository.fetchMovieTrailer(params: params);
+
+    return movieTrailerDomainList.mapToTrailerListItem();
   }
 
 }
 
 class GetMovieTrailerUseCaseParams {
   final int movieId;
+  final int pageNo;
 
 
   GetMovieTrailerUseCaseParams(
-      {this.movieId = 1,
-        });
+      {
+        this.movieId = 1,
+        this.pageNo = 1,
+      });
 }
